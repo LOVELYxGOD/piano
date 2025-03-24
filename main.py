@@ -144,7 +144,14 @@ pg.mixer.music.set_volume(0.3)
 
 
 def play_note():
-    ...
+    global next_note, sound
+
+    if next_note > 0:
+        sound.fadeout(1000)
+
+    sound = pg.mixer.Sound('Sounds/' + playing_song.notes[next_note] + '.ogg')
+    sound.play()
+    next_note += 1
 
 
 f1 = pg.font.Font(None, 38)
