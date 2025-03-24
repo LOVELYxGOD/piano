@@ -77,6 +77,13 @@ class Tile(pg.sprite.Sprite):
         if self.long and self.count > 0 and not self.played:
             self.image = Tile.long_tile
 
+        mouse_pos = pg.mouse.get_pos()
+
+        if pg.mouse.get_pressed()[0]:
+            if self.rect.collidepoint(mouse_pos):
+                self.press()
+
+
         if self.rect.y >= SIZE[1]:  # если плитка за пределами окна, она удаляется
             self.kill()
 
