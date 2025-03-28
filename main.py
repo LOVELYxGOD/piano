@@ -171,7 +171,7 @@ screen_notes = pg.sprite.Group()
 created_notes = 0
 next_note = 0
 timer = time.time()
-mode = "play"
+mode = "menu"
 playing_song = song1
 is_play = True
 
@@ -192,7 +192,23 @@ while True:
         if isinstance(sound, pg.mixer.Sound):
             sound.stop()
 
+        mouse_pos = pg.mouse.get_pos()
+
+        for song in Song.songs:
+            if song.rect.collidepoint(mouse_pos):
+                song.color = 'green'
+            else:
+                song.color = 'red'
+
+
         # место для отрисовки меню
+        screen.blit(background_menu, (0, 0))
+
+        y = 1
+        for song in Song.songs:
+            pg.draw.rect(screen, pg.Color(song.color), song.rect, 3)
+            screen.blit(song.text, (30, 100 * y + 5))
+            y += 1
 
     if mode == "play":
         if is_play:  # только если сейчас идёт игра - нет проигрыша или победы
