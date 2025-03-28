@@ -165,15 +165,15 @@ background_menu = pg.image.load("menu.png")
 background_menu = pg.transform.scale(background_menu, SIZE)
 
 is_play = False
-
+mode = "menu"
 # ВРЕМЕННЫЙ КОД для запуска без меню
 screen_notes = pg.sprite.Group()
 created_notes = 0
-next_note = 0
+# # next_note = 0
 timer = time.time()
-mode = "menu"
-playing_song = song1
-is_play = True
+#
+# playing_song = song1
+# is_play = True
 
 while True:
     for event in pg.event.get():
@@ -199,6 +199,17 @@ while True:
                 song.color = 'green'
             else:
                 song.color = 'red'
+
+        if pg.mouse.get_pressed()[0]:
+            screen_notes = pg.sprite.Group()
+            created_notes = 0
+            next_note = 0
+            timer = time.time()
+
+            for song in Song.songs:
+                if song.rect.collidepoint(mouse_pos):
+                    playing_song = song
+                    mode = 'play'
 
 
         # место для отрисовки меню
