@@ -256,6 +256,14 @@ while True:
                 screen.blit(text, text_rect)
                 is_play = False
 
+
+        for note in screen_notes:
+            if note.rect.y > 500 and not note.played:
+                text = f1.render('ПРОИГРЫШ', True, pg.Color('red'))
+                text_rect = text.get_rect(center=(SIZE[0] // 2, SIZE[1] // 2))
+                screen.blit(text,text_rect)
+                is_play = False
+
     pg.display.flip()
     clock.tick(fps)
 
