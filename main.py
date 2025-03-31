@@ -9,6 +9,27 @@ pg.mixer.init()
 # здесь записан порядок нот и их длительность для каждой песни
 SIZE = (400, 600)
 
+BABY_SHARK_NOTES = ["d4", "e4", "g4", "g4", "g4", "e4", "d4",
+"d4", "e4", "g4", "g4", "g4", "e4", "d4",
+"g4", "g4", "g4", "g4", "e4", "e4", "e4",
+"d4", "d4", "d4"]
+BABY_SHARK_DURATION = [1, 1, 1, 1, 1, 1, 2,
+1, 1, 1, 1, 1, 1, 2,
+1, 1, 1, 1, 1, 1, 2,
+1, 1, 2]
+
+
+TWINKLE_STAR_NOTES = ["c4", "c4", "g4", "g4", "a4", "a4", "g4",
+"f4", "f4", "e4", "e4", "d4", "d4", "c4",
+"g4", "g4", "f4", "f4", "e4", "e4", "d4",
+"g4", "g4", "f4", "f4", "e4", "e4", "d4"]
+TWINKLE_STAR_DURATION = [1, 1, 1, 1, 1, 1, 2,
+1, 1, 1, 1, 1, 1, 2,
+1, 1, 1, 1, 1, 1, 2,
+1, 1, 1, 1, 1, 1, 2]
+
+
+
 CHRISTMAS_TREE_NOTES = ["c4", "a4", "a4", "g4", "a4", "f4", "c4", "c4", "c4", "a4", "a4", "a-4", "g4", "c5",
                         "c5", "d4", "d4", "a-4", "a-4", "a4", "g4", "f4", "c4", "a4", "a4", "g4", "a4", "f4"]
 CHRISTMAS_TREE_DURATION = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2,
@@ -160,6 +181,9 @@ f1 = pg.font.Font(None, 38)
 song1 = Song("В лесу родилась ёлочка", CHRISTMAS_TREE_NOTES, CHRISTMAS_TREE_DURATION, (20, 100, 360, 45))
 song2 = Song("Во поле береза стояла", BIRCH_NOTES, BIRCH_DURATION, (20, 200, 360, 45), interval=0.7)
 song3 = Song("Утро", MORNING_NOTES, MORNING_DURATION, (20, 300, 360, 45))
+song4 = Song("baby_shark", BABY_SHARK_NOTES, BABY_SHARK_DURATION, (20, 400, 360, 45))
+song5 = Song("twinkle", TWINKLE_STAR_NOTES, TWINKLE_STAR_DURATION, (20, 500, 360, 45))
+
 
 background_menu = pg.image.load("menu.png")
 background_menu = pg.transform.scale(background_menu, SIZE)
